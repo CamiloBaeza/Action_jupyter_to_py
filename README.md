@@ -2,4 +2,4 @@
 
 whit Github actions
 
-this repo demos the action by dowloading a csv
+this repo demos the action by dowloading a csvs
