@@ -35,5 +35,5 @@ jobs:
       - id: jupyter
         name: Jupter Notebook Execution
         uses: action/checkout@v2
-        run: jupyter execute dowload.ipynb
+        run: jupyter execute download.ipynb
         shell: bash
