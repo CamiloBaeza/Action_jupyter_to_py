@@ -24,9 +24,16 @@ jobs:
         name: Repo Checkout
         uses: actions/checkout@v2
 
-      uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - id: python
+        name: Python Setup & packages
+        uses: actions/setup-python@v2
         whit:
-         python-version:'3.9'
+         python-version: '3.9'
          cache: 'pip'
-         -run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
+
+      - id: jupyter
+        name: Jupter Notebook Execution
+        uses: action/checkout@v2
+        run: jupyter execute dowload.ipynb
+        shell: bash
