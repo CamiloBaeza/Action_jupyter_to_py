@@ -1,14 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: jupyter
+name: Jupyter
 
 # Controls when the workflow will run
 on:
-  schedule:
-    - cron: '0 */24 * * *'
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  schedule:
+    - cron: '0 */24 * * *'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -20,20 +19,19 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - id: repo
+      - id: repo 
         name: Repo Checkout
         uses: actions/checkout@v2
 
       - id: python
-        name: Python Setup & packages
+        name: Python Setup & Packages Installation
         uses: actions/setup-python@v2
-        whit:
-         python-version: '3.9'
-         cache: 'pip'
+        with:
+          python-version: '3.9'
+          cache: 'pip'
       - run: pip install -r requirements.txt
 
-      - id: jupyter
-        name: Jupter Notebook Execution
-        uses: action/checkout@v2
+      - id: jupyter 
+        name: Jupyter Notebook Execution
         run: jupyter execute download.ipynb
-        shell: bash
+        shell: bash 
